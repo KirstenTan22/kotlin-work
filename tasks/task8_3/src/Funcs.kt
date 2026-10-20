@@ -2,11 +2,22 @@
 
 import kotlin.io.path.Path
 import kotlin.io.path.forEachLine
+import kotlin.io.path.exists
 
 typealias Record = Pair<String,Double>
 
 fun fetchData(filename: String) = buildList {
     // Finish the implementation of this function
+    val filePath = Path(filename)
+
+    if (!filePath.exists()) {
+        return@buildList
+    }
+    
+    filePath.forEachLine {
+        val (station, temp) = it.split(",")
+        add(Record(station.trim(), temp.trim().toDouble()))
+    }
 }
 
 // Challenge: compute average temperature with one line of code
