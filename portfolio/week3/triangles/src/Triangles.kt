@@ -11,7 +11,6 @@ fun isValidTriangle(triangle: Triangle): Boolean {
   val c = triangle.third
 
   if (a >= b + c || b >= a + c || c >= a + b) {
-    throw IllegalArgumentException("Error: Invalid triangle.")
     return false
   }
 
