@@ -10,9 +10,7 @@ fun isValidTriangle(triangle: Triangle): Boolean {
   val b = triangle.second
   val c = triangle.third
 
-  if (a >= b + c || b >= a + c || c >= a + b) {
-    return false
-  }
+  return !(a >= b + c || b >= a + c || c >= a + b)
 
   return true
 }
@@ -28,8 +26,6 @@ fun triangleArea(triangle: Triangle): Double {
 
   val s = 1.0/2*(a+b+c)
   val area = sqrt(s*(s-a)*(s-b)*(s-c))
-
-  print(area)
 
   return area
 }
